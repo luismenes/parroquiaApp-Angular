@@ -1,0 +1,8 @@
+<h2>{{ data.message }} </h2>
+<mat-dialog-content class="dialogo-content">
+
+    <div *ngIf="data.content">
+        <app-editar-papa [post]="data.content"></app-editar-papa>
+    </div>
+
+</mat-dialog-content>

@@ -1,0 +1,49 @@
+<div class="contendor-inicio">
+    <div class="contenedor-presentacion">
+        <div *ngFor="let item of cabecera$ | async" class="text text-center">
+            <i class="fas fa-church fa-3x"></i>
+            <h1> PARROQUIA {{item.parroquia | uppercase}} </h1>
+            <h2> {{ item.descripcion }} </h2>
+        </div>
+        <img src="assets\img\patronoInicio.png" alt="">
+    </div>
+
+</div>
+<div class="wave">
+    <div style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M-0.84,78.45 C315.74,148.52 354.12,-27.13 544.86,94.23 L499.15,165.28 L-17.21,165.28 Z" style="stroke: none; fill: #2193b0;"></path></svg></div>
+</div>
+
+
+<div class="container m-5">
+
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="parroquia">
+            <th mat-header-cell *matHeaderCellDef> PARROQUIA </th>
+            <td mat-cell *matCellDef="let element"> {{element.parroquia}} </td>
+        </ng-container>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="descripcion">
+            <th mat-header-cell *matHeaderCellDef> DESCRIPCION DEL SITIO WEB </th>
+            <td mat-cell *matCellDef="let element"> {{element.descripcion}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef> Herramientas </th>
+            <td mat-cell *matCellDef="let element">
+
+                <button mat-stroked-button color="accent" (click)="editCabecera(element)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+
+            </td>
+        </ng-container>
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>

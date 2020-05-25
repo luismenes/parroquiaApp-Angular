@@ -1,0 +1,25 @@
+<h4 class="text-center mb-4" style="color:brown;"> <label> CONFIRMACIONES REGISTRADAS</label></h4>
+<hr>
+<div class="container row">
+    <div class="col text-right">
+        <button mat-stroked-button routerLink="../confirmaciones/nuevo" class="btn btn-primary m-3">
+            <mat-icon>
+                add
+            </mat-icon>
+            Agregar
+        </button>
+    </div>
+</div>
+
+<app-tablas-confirmacion> </app-tablas-confirmacion>
+
+<div *ngIf="cargando" class="alert alert-info text-center m-3 animated fadeIn faster">
+    <h4 class="alert-heading">Cargando</h4>
+    <p>
+        <i class="fas fa-sync-alt fa-spin fa-2x"></i>
+    </p>
+    <p class="mb-0">
+        Espere por favor.
+    </p>
+
+</div>

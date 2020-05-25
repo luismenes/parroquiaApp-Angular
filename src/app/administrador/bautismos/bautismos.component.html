@@ -1,0 +1,78 @@
+<h3 class="text-center mb-4" style="color: brown;"><label>BAUTISMOS REGISTRADOS </label></h3>
+<hr>
+<div class="row container">
+    <div class="col text-right">
+        <button mat-stroked-button routerLink="../bautismo/nuevo" class="btn btn-primary m-3">
+            <mat-icon>
+                add
+            </mat-icon>   Agregar
+           
+            <!-- <i class="fa fa-plus">
+                Agregar
+            </i> -->
+        </button>
+    </div>
+</div>
+
+
+<!-- <table *ngIf="!cargando && bautismo.length > 0" class="table m-3 animated fadeIn faster">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Nº Registro</th>
+            <th scope="col">Nombres</th>
+            <th scope="col">Apellidos</th>
+            <th scope="col">Libro</th>
+            <th scope="col">Folio</th>
+            <th scope="col">Numero</th>
+            <th scope="col">Editar</th>
+            <th scope="col">Eliminar</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let bautismos of bautismo; let i = index">
+            <th scope="row"> {{ i + 1 }} </th>
+            <td> {{ bautismos.nombres }} </td>
+            <td> {{ bautismos.apellidos }} </td>
+            <td> {{ bautismos.libro }} </td>
+            <td> {{ bautismos.folio }} </td>
+            <td> {{ bautismos.numero }} </td>
+            <td>
+                <button class="btn btn-info mr-1" [routerLink]="['../bautismo', bautismos.id]">
+
+                    <i class="fa fa-pen" ></i>
+
+                </button>
+            </td>
+            <td>
+
+                <button class="btn btn-danger" (click)="borrarBautismo( bautismos, i )">
+                    
+                    <i class="fa fa-trash" ></i>
+
+                </button>
+            </td>
+        </tr>
+
+    </tbody>
+</table> -->
+
+<app-tabla-bautismos-is></app-tabla-bautismos-is>
+
+<!-- <div *ngIf="!cargando && bautismo.length === 0" class="alert alert-warning text-center m-3 animated fadeIn faster">
+    <h4 class="alert-heading">No hay registros</h4>
+    <p>
+        <i class="fas fa-exclamation fa-2x"></i>
+    </p>
+
+</div> -->
+
+
+<div *ngIf="cargando" class="alert alert-info text-center m-3 animated fadeIn faster">
+    <h4 class="alert-heading"> Cargando</h4>
+    <p>
+        <i class="fas fa-sync-alt fa-spin fa-2x"></i>
+    </p>
+    <p class="mb-0">
+        Espere por favor.
+    </p>
+</div>

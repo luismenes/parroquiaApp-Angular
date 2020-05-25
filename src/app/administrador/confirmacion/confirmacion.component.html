@@ -1,0 +1,77 @@
+<h1 *ngIf="!existeregistro" style="color: brown;"> REGISTRAR CONFIRMACION</h1>
+<h1 *ngIf="existeregistro" style="color: brown;"> EDITAR CONFIRMACION DE: <small> {{ confirmacion.nombres }} </small></h1>
+
+<div class="row container">
+    <div class="col text-right">
+        <button routerLink="../../confirmaciones" class="btn btn-danger m-3">
+            <i class="fas fa-arrow-left" >
+                Regresar
+            </i>
+        </button>
+    </div>
+</div>
+
+<div class="row animated fadeIn faster form-lg-rg">
+    <div class="col">
+
+        <form autocomplete="off" [formGroup]="forma" (ngSubmit)="guardar(f)" #f="ngForm">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label class="text-left" style="color: brown;">ID</label>
+                    <input type="text" name="id" class="form-control" disabled="disabled" placeholder="Firebase ID" formControlName="id" [(ngModel)]="confirmacion.id" id=" inputEmail4 ">
+                    <small class="form-text text-muted ">ID Autogenerado</small>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label class="text-left" style="color: brown;">Nombres</label>
+                <input type="text" class="form-control" id="inputAddress " formControlName="nombres" [(ngModel)]="confirmacion.nombres" [class.is-invalid]="nombresNoValidos" formGroupName="nombres" placeholder="Nombres">
+                <small *ngIf="nombresNoValidos || f.submitted" class="text-danger">
+                    Ingresa nombre completo
+                </small>
+            </div>
+            <div class="form-group">
+                <label class="text-left" style="color: brown;">Apellidos</label>
+                <input type="text" class="form-control" id="inputAddress2" formControlName="apellidos" [class.is-invalid]="apellidosNoValidos" [(ngModel)]="confirmacion.apellidos" placeholder="Apellidos">
+                <small *ngIf="apellidosNoValidos || f.submitted" class="text-danger">  
+                    Ingresa Apellidos
+                </small>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label class="text-left" style="color: brown;">L</label>
+                    <input type="number" class="form-control" placeholder="Libro" formControlName="libro" [class.is-invalid]="libroNoValido" [(ngModel)]="confirmacion.libro" id="inputCity ">
+                    <small *ngIf="libroNoValido || f.submitted" class="text-danger">  
+                         Ingrese numero
+                    </small>
+                </div>
+                <div class="form-group col-md-4">
+                    <label class="text-left" style="color: brown;">F</label>
+                    <input type="number" class="form-control" placeholder="Folio" formControlName="folio" [class.is-invalid]="folioNoValido" [(ngModel)]="confirmacion.folio" id="inputCity ">
+                    <small *ngIf="folioNoValido || f.submitted" class="text-danger">  
+                        Ingrese numero
+                   </small>
+                </div>
+                <div class="form-group col-md-4">
+                    <label class="text-left" style="color: brown;">N</label>
+                    <input type="number" class="form-control" placeholder="Numero" formControlName="numero" [class.is-invalid]="numeroNoValido" [(ngModel)]="confirmacion.numero" id="inputCity ">
+                    <small *ngIf="numeroNoValido || f.submitted" class="text-danger">  
+                        Ingrese numero
+                   </small>
+                </div>
+
+            </div>
+
+            <button *ngIf="!existeregistro" type="submit " class="btn btn-primary ">
+                <i class="fa fa-save "></i>
+                Guardar
+            </button>
+
+            <button *ngIf="existeregistro" type="submit " class="btn btn-primary ">
+                <i class="fa fa-save "></i>
+                Actualizar
+            </button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #2193b0;">
+    <a class="navbar-brand" href="#">
+
+        <img class="img-bandera" src="assets\img\Bandera MOMIL.png" width="50" height="30" alt="">
+
+    </a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div *ngIf="!sesionIniciada" class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item" [routerLinkActive]="['active']">
+                <a class="nav-link" routerLink="inicio"> <i class="fas fa-home">  </i> Inicio</a>
+
+            </li>
+            <li class="nav-item" [routerLinkActive]="['active']">
+                <a class="nav-link" routerLink="servicios">Servicios</a>
+            </li>
+            <li class="nav-item" [routerLinkActive]="['active']">
+                <a class="nav-link" routerLink="galeria">Galeria</a>
+            </li>
+            <li class="nav-item" [routerLinkActive]="['active']">
+                <a class="nav-link" routerLink="grupos">Grupos</a>
+            </li>
+            <li class="nav-item" [routerLinkActive]="['active']">
+                <a class="nav-link" routerLink="contactenos">Contactenos</a>
+            </li>
+
+        </ul>
+
+        <div>
+            <i>Redes Sociales</i>
+            <a href="https://www.facebook.com/parroquiasanantonio.momilcordoba?fref=search&__tn__=%2Cd%2CP-R&eid=ARDyUKTD2MnzwWXrdR7acGKjb8_CaSWHzTSKaZZ_LDClPZR6OV0LfnuVbOmwDnp41DroxEoiWgqUr-LI" target="_blank"> <i class="fab fa-facebook m-2"></i> </a>
+            <i class="fab fa-instagram m-3"></i>
+        </div>
+
+
+        <button mat-flat-button [routerLink]="['/login']" class="btn btn-success my-2 my-sm-0" type="button">Iniciar Sesión</button>
+        <!-- <button *ngIf="sesionIniciada" (click)="salir()" class="btn btn-outline-danger my-2 my-sm-0" type="button">Cerrar Sesión</button> -->
+
+
+
+
+    </div>
+
+
+    <div *ngIf="sesionIniciada" class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <br><br>
+        <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" [routerLink]="'homeadmin'">Inicio</a>
+            </li>
+
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" routerLink="partidasadmin/bautismos">Partidas</a>
+            </li>
+
+
+
+        </ul>
+
+        <!-- <button *ngIf="!sesionIniciada" routerLink="'/login'" class="btn btn-outline-info my-2 my-sm-0" type="button">Iniciar Sesión</button> -->
+        <button (click)="salir()" class="btn btn-danger my-2 my-sm-0" type="button">Cerrar Sesión</button>
+
+
+    </div>
+</nav>

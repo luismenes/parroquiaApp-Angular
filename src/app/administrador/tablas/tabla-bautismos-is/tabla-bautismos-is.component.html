@@ -1,0 +1,69 @@
+<!-- <div *ngIf="!cargando && bautismo.length > 0"> -->
+
+<mat-form-field *ngIf="!cargando && bautismo.length > 0">
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+</mat-form-field>
+
+<table *ngIf="!cargando && bautismo.length > 0" mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef> Nº de Registro </th>
+        <td mat-cell *matCellDef="let element;let i = index;"> {{element.position}} {{i + 1 }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="nombres">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombres </th>
+        <td mat-cell *matCellDef="let element"> {{element.nombres}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="apellidos">
+        <th mat-header-cell *matHeaderCellDef> Apellidos </th>
+        <td mat-cell *matCellDef="let element"> {{element.apellidos}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="libro">
+        <th mat-header-cell *matHeaderCellDef> Libro </th>
+        <td mat-cell *matCellDef="let element"> {{element.libro}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="folio">
+        <th mat-header-cell *matHeaderCellDef> Folio </th>
+        <td mat-cell *matCellDef="let element"> {{element.folio}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="numero">
+        <th mat-header-cell *matHeaderCellDef> Numero </th>
+        <td mat-cell *matCellDef="let element"> {{element.numero}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="herramientas">
+        <th mat-header-cell *matHeaderCellDef> Herramientas </th>
+        <td mat-cell *matCellDef="let element;let i = index;">
+            <button mat-stroked-button color="accent" [routerLink]="['../bautismo', element.id]">
+                    <mat-icon>
+                        edit
+                    </mat-icon>
+                </button>
+
+            <button mat-stroked-button color="warn" (click)="borrarBautismo(element, i)">
+                    <mat-icon>
+                        delete
+                    </mat-icon>
+                </button>
+
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<div *ngIf="!cargando && bautismo.length === 0" class="alert alert-warning text-center m-3 animated fadeIn faster">
+    <h4 class="alert-heading">No hay registros</h4>
+    <p>
+        <i class="fas fa-exclamation fa-2x"></i>
+    </p>
+</div>
+
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>

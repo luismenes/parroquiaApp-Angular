@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "loginparromomil": {
+      "hosting": {
+        "parroquiaApp": [
+          "loginparromomil"
+        ]
+      }
+    }
+  }
+}

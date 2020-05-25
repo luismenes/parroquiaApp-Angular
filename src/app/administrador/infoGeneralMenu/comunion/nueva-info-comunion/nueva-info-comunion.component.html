@@ -1,0 +1,12 @@
+<div class="row-2 new-sacerdote-container">
+    <form [formGroup]="newInfoForm" (ngSubmit)="newInfo(newInfoForm.value)">
+        <mat-form-field>
+            <mat-label> Información </mat-label>
+            <input matInput placeholder="Nombre" formControlName="informacion">
+        </mat-form-field>
+
+        <div class="container-button">
+            <input type="submit" value="Guardar" class="mat-flat-button">
+        </div>
+    </form>
+</div>

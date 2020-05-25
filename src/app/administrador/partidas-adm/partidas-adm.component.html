@@ -1,0 +1,26 @@
+<div>
+
+    <div id="section">
+
+        <nav aria-label="breadcrumb" class="mb-5">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a routerLinkActive="active" [routerLink]="['bautismos']">Bautismos</a></li>
+                <li class="breadcrumb-item"><a routerLinkActive="active" [routerLink]="['confirmaciones']">Confirmaciones</a></li>
+                <li class="breadcrumb-item"><a routerLinkActive="active" [routerLink]="['matrimonios']">Matrimonios</a></li>
+                <li class="breadcrumb-item"><a routerLinkActive="active" [routerLink]="['defuncion']">Defunciones</a></li>
+
+            </ol>
+        </nav>
+
+        <div class="container">
+            <div class="col">
+
+                <router-outlet></router-outlet>
+
+
+            </div>
+        </div>
+
+
+    </div>
+</div>

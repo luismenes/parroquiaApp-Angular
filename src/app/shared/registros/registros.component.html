@@ -1,0 +1,40 @@
+<div class="form-lg-rg">
+
+    <form (ngSubmit)="enviarSubmit(f)" #f="ngForm" class="form-group">
+
+        <h2> Registrar Usuario <span class="text-center"></span> </h2>
+        <br>
+
+        <span *ngIf="f.submitted && f.controls['nombre'].errors" class="text-danger mb-3 animated fadeIn">Campo Obligatorio</span>
+        <div class="form-group">
+
+            <input type="text" name="nombre" class="form-control" [(ngModel)]="usuario.nombre" required minlength="5" placeholder="Nombre y Apellidos">
+
+        </div>
+
+        <span *ngIf="f.submitted && f.controls['email'].errors" class="text-danger mb-3 animated fadeIn">El correo es Obligatorio</span>
+        <div class="form-group">
+
+            <input type="email" email name="email" class="form-control" [(ngModel)]="usuario.email" required type="email" placeholder="Correo">
+        </div>
+
+        <span *ngIf="f.submitted && f.controls['password'].errors" class="text-danger mb-3 animated fadeIn">Ingrese mas de 6 letras</span>
+        <div class="form-group">
+            <input type="password" name="password" class="form-control" [(ngModel)]="usuario.password" required minlength="5" placeholder="Password">
+        </div>
+
+        <div class="form-group form-check mt-1 mb-4">
+            <input [(ngModel)]="recordarme" name="checkbox" type="checkbox" class="form-check ml-0 mb-0">
+            <label class="ml-4 mb-0">Recordar Usuario</label>
+        </div>
+
+        <button class="btn btn-primary" type="submit">
+            <i class="fa fa-save"></i>
+                Registrar
+        </button>
+
+
+    </form>
+
+
+</div>

@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "parroquiaApp",
+      "public": "dist/parroquiaApp",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,242 @@
+<div class="contendor-inicio">
+    <div class="contenedor-presentacion">
+        <div *ngFor="let item of cabecera$ | async" class="text text-center">
+            <i class="fas fa-church fa-3x"></i>
+            <h1> PARROQUIA {{item.parroquia | uppercase}} </h1>
+            <h2> {{ item.descripcion }} </h2>
+        </div>
+
+        <button *ngIf="editar" class="btn btn-danger mr-1" [routerLink]="['/cabecera']">
+
+            <i class="fa fa-pen" ></i>
+
+        </button>
+
+        <img src="assets\img\patronoInicio.png" alt="">
+    </div>
+
+</div>
+<div class="wave">
+    <div style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M-0.84,78.45 C315.74,148.52 354.12,-27.13 544.86,94.23 L499.15,165.28 L-17.21,165.28 Z" style="stroke: none; fill: #2193b0;"></path></svg></div>
+</div>
+
+<section class="contenedor-partidas sobre-nosotros">
+    <h2 class="titulo text-center mt-5">Consulta tus partidas</h2>
+    <div class="contenedor-sobre-nosotros">
+
+        <a [routerLink]="[ '/servicios']" class="text-center m-5"><img src="assets\img\bautismos.png" alt="">
+            <h5 class=" mt-3">Bautismos</h5>
+        </a>
+
+        <a routerLink="" class="text-center m-5"><img src="assets\img\Confirmacioness.png" alt="">
+            <h5 class=" mt-3">Confirmaciones</h5>
+        </a>
+
+        <a routerLink="" class="text-center m-5"><img src="assets\img\matrimonioss.png" alt="">
+            <h5 class=" mt-3">Matrimonios</h5>
+        </a>
+
+        <a routerLink="" class="text-center m-5"><img src="assets\img\defuncioness.png" alt="">
+            <h5 class=" mt-3">Defunciones</h5>
+        </a>
+
+    </div>
+</section>
+
+
+<section class="servicio-cont">
+    <div class="servicio">
+        <div class="img-servicio">
+            <img src="assets\img SVG\undraw_sync_files_xb3r.svg" alt="" id="ilustracion1">
+        </div>
+        <article class="contenido-servicio">
+            <h3>Informacion general</h3>
+            <p>La Gracia es de Dios y la recibimos por Jesucristo, quién es la manifestación de tanto amor, con que Dios nos amó, indescriptible, indescifrable, incomprensible, para la mente del ser humano. Nunca podremos desentrañar los misterios del amor
+                de Dios por el ser humano.</p>
+            <!-- <ul>
+                <li>Este va a ser uno de los servicios</li>
+                <li>Este va a ser uno de los servicios</li>
+                <li>Este va a ser uno de los servicios</li>
+                <li>Este va a ser uno de los servicios</li>
+                <li>Este va a ser uno de los servicios</li>
+                <li>Este va a ser uno de los servicios</li>
+                <li>Este va a ser uno de los servicios</li>
+            </ul> -->
+
+
+
+            <div class="accordion" id="accordionExample">
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                            <button style="color: white;" class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Bautismo
+                      </button>
+                        </h2>
+                    </div>
+
+                    <div id="collapseOne" class="collapse show m-0" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <h1 class="text-center text-danger mt-3">REQUISITOS INSCRIPCIÓN DE BAUTISMO</h1>
+                        <div *ngFor="let item of infoBautismo$ | async; let i=index" class="card-body">
+                            <h2> {{ i + 1 }} - {{ item.informacion }} </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingTwo">
+                        <h2 class="mb-0">
+                            <button style="color: white;" class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Primera Comunión
+                      </button>
+                        </h2>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                        <h1 class="text-center text-danger mt-3">REQUISITOS PARA LA PRIMERA COMUNIÓN</h1>
+                        <div *ngFor="let item of infoComunion$ | async; let i=index" class="card-body">
+                            <h2> {{ i + 1 }} - {{ item.informacion }} </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingThree">
+                        <h2 class="mb-0">
+                            <button style="color: white;" class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Confirmación
+                      </button>
+                        </h2>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                        <h1 class="text-center text-danger mt-3">REQUISITOS PARA LA CONFIRMACIÓN</h1>
+                        <div *ngFor="let item of infoConfirmacion$ | async; let i=index" class="card-body">
+                            <h2> {{ i + 1 }} - {{ item.informacion }} </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingThree">
+                        <h2 class="mb-0">
+                            <button style="color: white;" class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Matrimonio
+                      </button>
+                        </h2>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                        <h1 class="text-center text-danger mt-3">REQUISITOS PARA CONTRAER MATRIMONIO</h1>
+                        <div *ngFor="let item of infoMatrimonio$ | async; let i=index" class="card-body">
+                            <h2> {{ i + 1 }} - {{ item.informacion }} </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingThree">
+                        <h2 class="mb-0">
+                            <button style="color: white;" class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Certificado de Solteria
+                      </button>
+                        </h2>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                        <h1 class="text-center text-danger mt-3">REQUISITOS PARA DOCUMENTO</h1>
+                        <div *ngFor="let item of infoSolteria$ | async; let i=index" class="card-body">
+                            <h2> {{ i + 1 }} - {{ item.informacion }} </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </article>
+
+        <button *ngIf="editar" class="btn btn-danger mr-1" [routerLink]="['/informacion']">
+
+            <i class="fa fa-pen" ></i>
+
+        </button>
+    </div>
+</section>
+
+<div class="slider-contenedor">
+    <section class="slider">
+
+        <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
+
+            <h4 class="m-3"> Actividades y Grupos Apostólicos</h4>
+            <p class="m-4">¿Te has planteado participar en la vida de la iglesia, por medio de nuestra comunidad parroquial?</p>
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-interval="500">
+                    <img src="assets\img\altar.jpg" alt="...">
+                </div>
+
+                <div class="carousel-item" data-interval="800">
+                    <img src="assets\img\grupos.jpg" alt="...">
+                </div>
+            </div>
+
+        </div>
+
+
+    </section>
+</div>
+
+
+<section id="parrocos">
+
+
+
+    <div class="sacerdotes">
+
+        <div class="  text-center">
+
+            <hr>
+
+
+
+        </div>
+
+        <div class="container-obispo">
+            <!-- {{ sacerdotes$ | async | json }} -->
+
+            <div *ngFor="let item of papa$ | async" class="image-obispo">
+                <img [src]="item.imgPost" alt="...">
+                <div class="hover-obispo-galery">
+                    <mat-icon>image_search</mat-icon>
+                    <h5> Su Santidad, Papa {{ item.namePost | uppercase }} </h5>
+                </div>
+            </div>
+
+            <div class="image-patrono">
+                <img src="assets\img\patrono img.jpg" alt="...">
+            </div>
+
+            <div *ngFor="let item of obispo$ | async" class="image-obispo">
+                <img [src]="item.imgPost" alt="...">
+                <div class="hover-obispo-galery">
+                    <mat-icon>image_search</mat-icon>
+                    <h5> Monseñor. {{ item.namePost | uppercase }} </h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-sacerd">
+            <!-- {{ sacerdotes$ | async | json }} -->
+
+            <div *ngFor="let item of sacerdotes$ | async" class="image-sacerd">
+                <img [src]="item.imgPost" alt="...">
+                <div class="hover-sacerd-galery">
+                    <mat-icon>image_search</mat-icon>
+                    <h5> Pbro. {{ item.namePost | uppercase }} </h5>
+                    <p> {{ item.inicioPost }} - {{ item.salidaPost }} </p>
+                </div>
+            </div>
+        </div>
+
+
+        <button *ngIf="editar" class="btn btn-danger mr-1" [routerLink]="['/sacerdotes']">
+
+            <i class="fa fa-pen" ></i>
+    
+        </button>
+
+    </div>
+
+
+</section>
